@@ -1,0 +1,20 @@
+---
+import FormAstroComponent from "../components/Form.astro";
+import NavAstroComponent from "../components/Nav.astro";
+import BaseLayoutAstroComponent from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayoutAstroComponent
+ title="Ad-pages: Contact" 
+  description="Contact Ad-pages.com and share your vision for your next landing page."
+  image="/ad-pages-logo-color.svg"
+>
+<NavAstroComponent searchText="Contact Ad-pages.com"></NavAstroComponent>
+<section id="contact-form" class=" max-w-4xl mx-auto">
+  <div class="text-black font-mono">
+        <FormAstroComponent></FormAstroComponent>
+    </div>
+
+</section>
+
+</BaseLayoutAstroComponent>

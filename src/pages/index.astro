@@ -1,9 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
-
-import exampleimg from '../assets/images/favicon.svg'
+import FooterAstroComponent from '../components/Footer.astro'
+import NavAstroComponent from '../components/Nav.astro'
+import ResultSectionAstroComponent from '../components/Result-Section.astro';
 import '../styles/global.css';  
+
+import { Image } from 'astro:assets';
+import ThemeAstroComponent from '../components/Theme.astro';
+import exampleimg from '../assets/images/favicon.svg'
+
 ---
 
 <BaseLayout 
@@ -11,15 +16,76 @@ import '../styles/global.css';
   description="Welcome to my lightning fast website built with Astro."
   image="/images/home-og.jpg"
 >
-  <main>
-    <h1 class="text-center" >Welcome to my new site!</h1>
-	<Image 
-        src={exampleimg} 
-        alt="Gallery submission"
-		priority
-		fit="'contain' | 'cover' | 'fill' | 'none' | 'scale-down'"
-		position='center or other css options'
-      />
-  </main>
+  <!-- Main Content / Hero -->
+    <main class="grow flex flex-col items-center justify-center px-4 py-12 md:py-20">
+      <div class="max-w-3xl w-full flex flex-col items-center text-center">
+        
+        <!-- Classic Logo & Title Display -->
+        <div class="mb-8 flex flex-col items-center gap-3">
+          <h1 class="font-brand-display text-4xl md:text-6xl font-bold text-black tracking-tight">
+            Ad-pages<span class="text-brand-red">.com</span>
+          </h1>
+          <!-- Wavy Separator Accent -->
+        </div>
+
+        <!-- Retro Search Engine Box -->
+        <div class="w-full bg-gray-50 text-left relative">
+          
+          <!-- Active Input Bar -->
+          <div class="relative flex items-center border border-[var(--color-brand-gray)] bg-white px-3 py-2.5 shadow-inner group">
+             <svg class="size-6 text-[var(--color-brand-orange)] shrink-0 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+            <span class="text-lg md:text-xl font-medium text-black px-2  group-hover:translate-x-0.5 transition-transform">Build fast and performant landing pages.</span>
+            
+          </div>
+
+          <!-- Suggested Searches / Auto-Complete Dropdown -->
+          <div class="mt-2 border border-[var(--color-brand-gray)]/30 bg-white/80 divide-y divide-[var(--color-brand-gray)]/10 text-sm">
+            <a 
+              href="/build-fast/" 
+              class="flex items-center gap-3 p-3 hover:bg-[var(--color-brand-red)]/30 transition-colors group cursor-pointer text-black"
+            >
+              <span class="text-brand-red group-hover:translate-x-0.5 transition-transform">➔</span>
+              <span><strong>Build Fast</strong> landing pages for your ads.</span>
+            </a>
+
+            <a 
+              href="/build-performant/" 
+              class="flex items-center gap-3 p-3 hover:bg-[var(--color-brand-lavender)]/30 transition-colors group cursor-pointer text-black"
+            >
+              <span class="text-brand-lavender group-hover:translate-x-0.5 transition-transform">➔</span>
+              <span><strong>Build Performant</strong> landing pages that convert.</span>
+            </a>
+
+            <a 
+              href="/build-trust/" 
+              class="flex items-center gap-3 p-3 hover:bg-[var(--color-brand-blue)]/30 transition-colors group cursor-pointer text-black"
+            >
+              <span class="text-[var(--color-brand-blue)] group-hover:translate-x-0.5 transition-transform">➔</span>
+              <span><strong>Built Trust</strong> with a simple and secure platform.</span>
+            </a>
+          </div>
+
+          <!-- Call To Action Buttons (Replacing standard Search buttons) -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6 pt-2">
+            <a 
+              href="/build-with-ad-pages/" 
+              class="w-full sm:w-auto px-6 py-2.5 text-center text-sm font-semibold border hover:bg-[var(--color-brand-red)]/30 transition-colors cursor-pointer text-black "
+            >
+             Build with Ad-pages
+            </a>
+            <a 
+              href="/build-fast/" 
+              class="w-full sm:w-auto px-6 py-2.5 text-center text-sm font-semibold  hover:bg-brand-lavender/30 transition-colors cursor-pointer text-black border"
+            >
+             Learn More 
+            </a>
+          </div>
+
+        </div>
+      </div>
+    
+    </main>
 </BaseLayout>
 

@@ -16,7 +16,7 @@ export default defineConfig({
     format: 'directory', // Ensures pages are built as /page/index.html
   },
 
-  site: 'https://example.com',
+  site: 'https://ad-pages.com',
 
   vite: {
     plugins: [tailwindcss()],

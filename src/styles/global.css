@@ -3,5 +3,43 @@
 
 @theme {
   /* Effortlessly add or override custom theme values */
+  
+  --color-brand-cyan: rgb(164, 216, 216);
+  --color-brand-blue: rgb(125, 138, 255);
+  --color-brand-lavender: rgb(190, 125, 255);
+  --color-brand-red: rgb(255, 125, 125);
+  --color-brand-orange: rgb(255, 164, 125);
+  --color-brand-green: rgb(177, 203, 180);
+  --color-brand-gray: rgb(87, 84, 84);
+  --color-brand-paper: rgb(223, 220, 223); /* #dfdcdf - Newspaper Light Gray */
 
+  /* --- BRAND FONTS --- */
+  /* Require fonts to be imported in the head/HTML (see below) */
+  --font-brand-display: "Playfair Display", serif;
+  --font-brand-body: "IBM Plex Mono", monospace;
+
+  /* --- BRAND SPACING/PADDING --- */
+  --spacing-brand-tight: theme('spacing.1'); /* 4px */
+  --spacing-brand-base: theme('spacing.4');  /* 16px */
+  --spacing-brand-loose: theme('spacing.8'); /* 32px */
+
+  /* --- BRAND ROUNDING --- */
+  --radius-brand-sharp: theme('borderRadius.none');
+  --radius-brand-soft: theme('borderRadius.sm');
 }
+
+/* --- THE WAVY SEPARATOR (CSS Pattern) --- */
+/* Replicates the wavy lines from the logo */
+.brand-wave {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 1px,
+    var(--color-brand-gray) 1px,
+    var(--color-brand-gray) 2px
+  );
+  height: 2px;
+  width: 100%;
+  opacity: 0.6; /* Soften the wave line */
+}
+

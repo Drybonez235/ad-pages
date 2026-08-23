@@ -1,0 +1,64 @@
+---
+import FooterAstroComponent from '../components/Footer.astro';
+import NavAstroComponent from '../components/Nav.astro';
+import '../styles/global.css';
+
+const searchResults = [
+  {
+    iconColor: 'bg-[var(--color-brand-cyan)]',
+    hoverBg: 'hover:bg-[var(--color-brand-cyan)]/20',
+    dotColor: 'text-[var(--color-brand-cyan)]',
+    title: "You crafted the perfect ad but your client's website just isn't right?",
+    description: "Ad Pages allows you to easily craft and customize landing pages that will match the speed and quality of your ad. No more dealing with Wordpress, SqaureSpace, Wix, and whatever bespoke framework your client uses. Use Ad-pages to host your next landing page.",
+    href: "#iteration-1"
+  },
+  {
+    iconColor: 'bg-[var(--color-brand-lavender)]',
+    hoverBg: 'hover:bg-[var(--color-brand-lavender)]/20',
+    dotColor: 'text-[var(--color-brand-lavender)]',
+    title: "You crafted the perfect ad but your client's website just isn't right?",
+    description: "Ad Pages allows you to easily craft and customize landing pages that will match the speed and quality of your ad. No more dealing with Wordpress, SqaureSpace, Wix, and whatever bespoke framework your client uses. Use Ad-pages to host your next landing page.",
+    href: "#iteration-2"
+  }
+];
+---
+
+<section id="build-fast" class="min-h-dvh w-full">
+  <div class="text-black font-mono">
+    
+    <!-- Top Header & Search Navigation Area -->
+  <NavAstroComponent></NavAstroComponent> 
+    <!-- Main Content Area -->
+    <main class="max-w-4xl mx-auto px-6 pb-20">
+      <h3 class="text-3xl/9 font-serif font-normal mb-8 text-black">Lightning Fast Iteration</h3>
+
+      <!-- Search Results List -->
+      <div class="flex flex-col gap-8">
+        {searchResults.map((result) => (
+          <a 
+            href={result.href}
+            class={`group block p-4 transition-colors duration-150 border border-transparent hover:border-black/10 ${result.hoverBg}`}
+          >
+            <!-- Domain Header -->
+            <div class="flex items-center gap-2 mb-2">
+              <span class={`size-6 rounded-full ${result.iconColor} inline-block shrink-0`}></span>
+              <span class="text-xs/4 font-sans text-black">Ad-pages.com</span>
+            </div>
+
+            <!-- Result Title -->
+            <h2 class="text-lg/6 font-bold font-sans text-black mb-2 group-hover:underline">
+              {result.title}
+            </h2>
+
+            <!-- Result Snippet -->
+            <p class="text-xs/5 font-sans text-black/90 max-w-3xl">
+              {result.description}
+            </p>
+          </a>
+        ))}
+      </div>
+    </main>
+
+    
+  </div>
+</section>

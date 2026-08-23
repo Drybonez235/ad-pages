@@ -23,12 +23,10 @@ const { title, description, image, type, businessInfo } = Astro.props;
       type={type} 
       businessInfo={businessInfo}>
   </BASEHEAD>
-  </head>
-  <body>
-    <NAV></NAV>
-    <main>
+  
+  <body class="bg-gray-50">
       <slot /> <!-- This is where page content goes -->
-    </main>
+    
     <FOOTER></FOOTER>
   </body>
 </html>

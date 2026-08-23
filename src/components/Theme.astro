@@ -1,0 +1,202 @@
+---
+import '../styles/global.css';  
+
+// Reusable pastel border colors
+const borders = [
+  "border-l-brand-orange",
+  "border-l-brand-lavender",
+  "border-l-brand-cyan"
+];
+---
+
+<div class="max-w-4xl mx-auto p-8 font-brand-body text-brand-gray space-y-12 bg-white">
+
+  <!-- ========================================== -->
+  <!-- 1. COLOR SWATCHES                          -->
+  <!-- ========================================== -->
+  <section class="space-y-4">
+    <h2 class="font-brand-display text-2xl font-bold border-b-2 border-brand-gray pb-2">
+      Color Palette
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+      <!-- Cyan -->
+      <div class="flex items-center gap-4 p-3 border border-brand-gray/20 rounded-brand-soft">
+        <div class="w-16 h-16 bg-brand-cyan rounded-brand-soft border border-brand-gray/20 shrink-0"></div>
+        <div>
+          <p class="font-bold">Pastel Cyan</p>
+          <p class="text-xs text-brand-gray/70">--color-brand-cyan</p>
+          <p class="text-xs text-brand-gray/70">rgb(164, 216, 216) / #a4d8d8</p>
+        </div>
+      </div>
+
+      <!-- Blue -->
+      <div class="flex items-center gap-4 p-3 border border-brand-gray/20 rounded-brand-soft">
+        <div class="w-16 h-16 bg-brand-blue rounded-brand-soft border border-brand-gray/20 shrink-0"></div>
+        <div>
+          <p class="font-bold">Pastel Blue</p>
+          <p class="text-xs text-brand-gray/70">--color-brand-blue</p>
+          <p class="text-xs text-brand-gray/70">rgb(125, 138, 255) / #7d8aff</p>
+        </div>
+      </div>
+
+      <!-- Lavender -->
+      <div class="flex items-center gap-4 p-3 border border-brand-gray/20 rounded-brand-soft">
+        <div class="w-16 h-16 bg-brand-lavender rounded-brand-soft border border-brand-gray/20 shrink-0"></div>
+        <div>
+          <p class="font-bold">Pastel Lavender</p>
+          <p class="text-xs text-brand-gray/70">--color-brand-lavender</p>
+          <p class="text-xs text-brand-gray/70">rgb(190, 125, 255) / #be7dff</p>
+        </div>
+      </div>
+
+      <!-- Red -->
+      <div class="flex items-center gap-4 p-3 border border-brand-gray/20 rounded-brand-soft">
+        <div class="w-16 h-16 bg-brand-red rounded-brand-soft border border-brand-gray/20 shrink-0"></div>
+        <div>
+          <p class="font-bold">Pastel Red</p>
+          <p class="text-xs text-brand-gray/70">--color-brand-red</p>
+          <p class="text-xs text-brand-gray/70">rgb(255, 125, 125) / #ff7d7d</p>
+        </div>
+      </div>
+
+      <!-- Orange -->
+      <div class="flex items-center gap-4 p-3 border border-brand-gray/20 rounded-brand-soft">
+        <div class="w-16 h-16 bg-brand-orange rounded-brand-soft border border-brand-gray/20 shrink-0"></div>
+        <div>
+          <p class="font-bold">Pastel Orange</p>
+          <p class="text-xs text-brand-gray/70">--color-brand-orange</p>
+          <p class="text-xs text-brand-gray/70">rgb(255, 164, 125) / #ffa47d</p>
+        </div>
+      </div>
+
+      <!-- Green -->
+      <div class="flex items-center gap-4 p-3 border border-brand-gray/20 rounded-brand-soft">
+        <div class="w-16 h-16 bg-brand-green rounded-brand-soft border border-brand-gray/20 shrink-0"></div>
+        <div>
+          <p class="font-bold">Pastel Gray Green</p>
+          <p class="text-xs text-brand-gray/70">--color-brand-green</p>
+          <p class="text-xs text-brand-gray/70">rgb(177, 203, 180) / #b1cbb4</p>
+        </div>
+      </div>
+
+      <!-- Gray -->
+      <div class="flex items-center gap-4 p-3 border border-brand-gray/20 rounded-brand-soft">
+        <div class="w-16 h-16 bg-brand-gray rounded-brand-soft border border-brand-gray/20 shrink-0"></div>
+        <div>
+          <p class="font-bold">Charcoal Gray</p>
+          <p class="text-xs text-brand-gray/70">--color-brand-gray</p>
+          <p class="text-xs text-brand-gray/70">rgb(87, 84, 84) / #575454</p>
+        </div>
+      </div>
+
+      <!-- Newspaper Light Gray -->
+      <div class="flex items-center gap-4 p-3 border border-brand-gray/20 rounded-brand-soft">
+        <div class="w-16 h-16 bg-brand-paper rounded-brand-soft border border-brand-gray/20 shrink-0"></div>
+        <div>
+          <p class="font-bold">Newspaper Light Gray</p>
+          <p class="text-xs text-brand-gray/70">--color-brand-paper</p>
+          <p class="text-xs text-brand-gray/70">rgb(223, 220, 223) / #dfdcdf</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. TYPOGRAPHY                              -->
+  <!-- ========================================== -->
+  <section class="space-y-4">
+    <h2 class="font-brand-display text-2xl font-bold border-b-2 border-brand-gray pb-2">
+      Typography
+    </h2>
+    
+    <div class="space-y-4">
+      <div class="p-4 border border-brand-gray/20 rounded-brand-soft">
+        <p class="text-xs text-brand-gray/70 mb-1">--font-brand-display (Headlines)</p>
+        <p class="font-brand-display text-3xl font-bold">
+          Ad-pages.com Print Display
+        </p>
+      </div>
+
+      <div class="p-4 border border-brand-gray/20 rounded-brand-soft">
+        <p class="text-xs text-brand-gray/70 mb-1">--font-brand-body (Body Copy)</p>
+        <p class="font-brand-body text-base">
+          The quick brown fox jumps over the lazy dog. A nostalgic bridge between print and digital.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. ROUNDING / BORDER RADIUS                -->
+  <!-- ========================================== -->
+  <section class="space-y-4">
+    <h2 class="font-brand-display text-2xl font-bold border-b-2 border-brand-gray pb-2">
+      Border Radius (Rounding)
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+      <!-- Sharp -->
+      <div class="p-6 bg-brand-cyan/20 border-2 border-brand-gray rounded-brand-sharp">
+        <p class="font-bold text-sm">Sharp Radius</p>
+        <p class="text-xs text-brand-gray/70">--radius-brand-sharp (rounded-brand-sharp)</p>
+      </div>
+
+      <!-- Soft -->
+      <div class="p-6 bg-brand-cyan/20 border-2 border-brand-gray rounded-brand-soft">
+        <p class="font-bold text-sm">Soft Radius</p>
+        <p class="text-xs text-brand-gray/70">--radius-brand-soft (rounded-brand-soft)</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. PADDING & SPACING                       -->
+  <!-- ========================================== -->
+  <section class="space-y-4">
+    <h2 class="font-brand-display text-2xl font-bold border-b-2 border-brand-gray pb-2">
+      Padding & Spacing
+    </h2>
+    <div class="space-y-4">
+      
+      <!-- Tight -->
+      <div class="bg-brand-gray/10 border border-brand-gray/30 rounded-brand-soft">
+        <div class="p-brand-tight bg-brand-orange/40 rounded-brand-soft">
+          <p class="text-xs font-bold">p-brand-tight (--spacing-brand-tight)</p>
+        </div>
+      </div>
+
+      <!-- Base -->
+      <div class="bg-brand-gray/10 border border-brand-gray/30 rounded-brand-soft">
+        <div class="p-brand-base bg-brand-lavender/40 rounded-brand-soft">
+          <p class="text-xs font-bold">p-brand-base (--spacing-brand-base)</p>
+        </div>
+      </div>
+
+      <!-- Loose -->
+      <div class="bg-brand-gray/10 border border-brand-gray/30 rounded-brand-soft">
+        <div class="p-brand-loose bg-brand-cyan/40 rounded-brand-soft">
+          <p class="text-xs font-bold">p-brand-loose (--spacing-brand-loose)</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. BRAND UTILITY (WAVY LINE)               -->
+  <!-- ========================================== -->
+  <section class="space-y-4">
+    <h2 class="font-brand-display text-2xl font-bold border-b-2 border-brand-gray pb-2">
+      Brand Utilities
+    </h2>
+    <div class="p-4 border border-brand-gray/20 rounded-brand-soft space-y-4">
+      <p class="text-xs text-brand-gray/70">.brand-wave (Newspaper Line Divider)</p>
+      <div class="brand-wave"></div>
+      <div class="brand-wave"></div>
+    </div>
+  </section>
+
+</div>

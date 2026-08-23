@@ -1,0 +1,103 @@
+<!-- Hidden iframe prevents page redirection on submission -->
+<iframe name="hidden_google_iframe" id="hidden_google_iframe" class="hidden"></iframe>
+
+<!-- Success Confirmation Message (Initially Hidden) -->
+<div 
+  id="form-success-message" 
+  class="hidden flex flex-col gap-2 rounded-xs border border-brand-green bg-white p-6 text-center shadow-xs"
+>
+  <h2 class="font-brand-display text-2xl/tight font-bold text-black">
+    Your form has been received!
+  </h2>
+  <p class="font-brand-body text-sm/6 text-brand-gray">
+    Thank you for sharing your vision. We will review your request and reach out shortly.
+  </p>
+</div>
+
+<!-- Form Submitting directly to Google Forms -->
+<form
+  id="Ad-Pages-Form"
+  action="https://docs.google.com/forms/u/0/d/1fZNizhHCqaPNAilBLpAKY96KDrrBHYCH0h-37129AgU/formResponse"
+  method="POST"
+  target="hidden_google_iframe"
+  class="group flex flex-col gap-6 rounded-xs border border-brand-gray bg-white px-3 py-2.5 shadow-xs"
+>
+  <!-- Name Field -->
+  <div class="flex flex-col gap-2">
+    <label for="name" class="font-brand-body text-sm/6 font-semibold text-black">
+      Name <span class="text-brand-red">*</span>
+    </label>
+    <input
+      type="text"
+      id="name"
+      name="entry.1330574423"
+      required
+      placeholder="Your name"
+      class="w-full rounded-xs border border-brand-gray/30 bg-white/80 px-3 py-2 font-brand-body text-sm/6 text-black placeholder:text-brand-gray/50 focus:border-brand-green focus:outline-hidden focus:ring-1 focus:ring-brand-green"
+    />
+  </div>
+
+  <!-- Email Field -->
+  <div class="flex flex-col gap-2">
+    <label for="email" class="font-brand-body text-sm/6 font-semibold text-black">
+      Email <span class="text-brand-red">*</span>
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="entry.49073643"
+      required
+      placeholder="your.email@example.com"
+      class="w-full rounded-xs border border-brand-gray/30 bg-white px-3 py-2 font-brand-body text-sm/6 text-black placeholder:text-brand-gray/50 focus:border-brand-orange focus:outline-hidden focus:ring-1 focus:ring-brand-orange"
+    />
+  </div>
+
+  <!-- Vision/Message Field -->
+  <div class="flex flex-col gap-2">
+    <label for="vision" class="font-brand-body text-sm/6 font-semibold text-black">
+      Tell us your vision for your next landing page. <span class="text-brand-red">*</span>
+    </label>
+    <textarea
+      id="vision"
+      name="entry.586532116"
+      rows="4"
+      required
+      placeholder="Describe your goals, audience, and ideas..."
+      class="w-full rounded-xs border border-brand-gray/30 bg-white px-3 py-2 font-brand-body text-sm/6 text-black placeholder:text-brand-gray/50 focus:border-brand-blue focus:outline-hidden focus:ring-1 focus:ring-brand-blue"
+    ></textarea>
+  </div>
+
+  <!-- Hidden Google Form Fields -->
+  <input type="hidden" name="fvv" value="1" />
+  <input type="hidden" name="fbzx" value="-5799261007007996677" />
+  <input type="hidden" name="pageHistory" value="0" />
+
+  <!-- Submit Button -->
+  <button
+    type="submit"
+    class="mt-2 cursor-pointer rounded-xs bg-brand-blue px-6 py-3 font-brand-body text-sm/6 font-semibold text-white transition-colors hover:bg-brand-blue/90 focus:outline-hidden focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
+  >
+    Submit Vision
+  </button>
+</form>
+
+<script>
+  let isSubmitting = false;
+
+  const form = document.getElementById('Ad-Pages-Form') as HTMLFormElement | null;
+  const iframe = document.getElementById('hidden_google_iframe') as HTMLIFrameElement | null;
+  const successMsg = document.getElementById('form-success-message');
+
+  // Track when the submit event is triggered by the user
+  form?.addEventListener('submit', () => {
+    isSubmitting = true;
+  });
+
+  // When the iframe finishes posting to Google Forms, switch views
+  iframe?.addEventListener('load', () => {
+    if (isSubmitting) {
+      form?.classList.add('hidden');
+      successMsg?.classList.remove('hidden');
+    }
+  });
+</script>
