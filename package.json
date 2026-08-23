@@ -9,12 +9,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "deploy": "astro build && wrangler pages deploy ./dist"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.2.3",
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^6.4.2",
+    "cloudflare": "^7.1.0",
     "tailwindcss": "^4.3.3",
     "wrangler": "^4.125.0"
   },

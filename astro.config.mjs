@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-
+import cloudflare from '@astrojs/cloudflare';
 import tailwindcss from "@tailwindcss/vite";
 //npm install tailwindcss @tailwindcss/vite
 //npm install -D @tailwindcss/typography
@@ -26,6 +26,6 @@ export default defineConfig({
     port: 3000,
     open: true, 
   },
-
+adapter: cloudflare(),
   integrations: [sitemap()],
 });
