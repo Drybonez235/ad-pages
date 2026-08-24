@@ -24,9 +24,74 @@ const { title, description, image, type, businessInfo } = Astro.props;
       businessInfo={businessInfo}>
   </BASEHEAD>
   
-  <body class="bg-gray-50">
-      <slot /> <!-- This is where page content goes -->
+  <body class="bg-gray-50 ">
+     <!-- Standalone background canvas -->
+    <canvas 
+      id="stainCanvas" 
+      class="fixed inset-0 -z-10 pointer-events-none w-full h-full bg-transparent"
+    ></canvas>
+    <slot /> <!-- This is where page content goes -->
     
     <FOOTER></FOOTER>
   </body>
 </html>
+
+
+<script is:inline>
+  const canvas = document.getElementById('stainCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // Your brand palette converted with transparency
+  const stainColors = [
+    'rgba(164, 216, 216, 0.25)', // brand-cyan
+    'rgba(125, 138, 255, 0.25)', // brand-blue
+    'rgba(190, 125, 255, 0.25)', // brand-lavender
+    'rgba(255, 125, 125, 0.25)', // brand-red
+    'rgba(255, 164, 125, 0.25)', // brand-orange
+    'rgba(177, 203, 180, 0.25)'  // brand-green
+  ];
+
+  // Set internal canvas resolution to match viewport display size
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  function drawStain(centerX, centerY, baseRadius, color, numPoints = 12) {
+    ctx.beginPath();
+    const points = [];
+    
+    // Generate randomized radii around a circle center
+    for (let i = 0; i < numPoints; i++) {
+      const angle = (i / numPoints) * Math.PI * 2;
+      const distortion = baseRadius * (0.5 + Math.random());
+      points.push({
+        x: centerX + Math.cos(angle) * distortion,
+        y: centerY + Math.sin(angle) * distortion
+      });
+    }
+
+    // Connect points using smooth cubic Bezier curves
+    ctx.moveTo((points[0].x + points[numPoints - 1].x) / 2, (points[0].y + points[numPoints - 1].y) / 2);
+    for (let i = 0; i < numPoints; i++) {
+      const p1 = points[i];
+      const p2 = points[(i + 1) % numPoints];
+      const midX = (p1.x + p2.x) / 2;
+      const midY = (p1.y + p2.y) / 2;
+      ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
+    }
+
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
+
+  // Draw 5 random stains
+  for (let i = 0; i < 3; i++) {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height;
+    const size = 100 + Math.random() * 150;
+    
+    // Pick a random color from your brand array
+    const randomColor = stainColors[Math.floor(Math.random() * stainColors.length)];
+    
+    drawStain(x, y, size, randomColor);
+  }
+</script>

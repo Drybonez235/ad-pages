@@ -1,7 +1,6 @@
 ---
-const SITE_DEFAULT_TITLE = 'My Awesome Astro Base';
-const SITE_DEFAULT_DESC = 'The perfect starting point for my web projects.';
-const SITE_DEFAULT_IMG = '/default-og-image.jpg'; // Placed in public/ folder
+const SITE_DEFAULT_DESC = 'At Ad-pages we build landing pages for Google and Meta ads. Building landing pages using a companys tech stack can be slow and daunting. With Ad-pages you can have a landing page built in no time.';
+const SITE_DEFAULT_IMG = '/favicon.svg'; // Placed in public/ folder
 
 export interface BusinessInfo {
   name: string;
@@ -9,14 +8,6 @@ export interface BusinessInfo {
   url: string;
   logo: string;
   description: string;
-  telephone?: string;
-  address: {
-    streetAddress: string;
-    addressLocality: string; // City
-    addressRegion: string;   // State/Province (e.g., "NY")
-    postalCode: string;
-    addressCountry: string;  // (e.g., "US")
-  };
 }
 interface Props {
   title?: string;
@@ -29,30 +20,21 @@ interface Props {
 
 // 1. Initialize your default business object HERE inside the component
 const DEFAULT_BUSINESS_INFO: BusinessInfo = {
-  name: 'Christ For Life',
-  url: 'https://cflmc.org/',
-  logo: '/favicon.svg',
-  description: 'Christ for Life motorcycle club exists with the purpose of reaching the motorcycle community with the saving knowledge and love of Jesus Christ.',
-  telephone: '7739832677',
-  address: {
-    streetAddress: '6156 W Grand Ave',
-    addressLocality: 'Chicago',
-    addressRegion: 'IL',
-    postalCode: '60634',
-    addressCountry: 'US',
-  },
+  name: 'Ad-pages.com',
+  url: 'https://ad-pages.com/',
+  logo: '/ad-pages-logo-color.svg',
+  description: 'At Ad-pages we build landing pages for Google and Meta ads. Building landing pages using a companys tech stack can be slow and daunting. With Ad-pages you can have a landing page built in no time.',
 };
 
 const {
-  title = SITE_DEFAULT_TITLE,
+  title,
   description = SITE_DEFAULT_DESC,
   image = SITE_DEFAULT_IMG,
   type = 'website',
-  businessInfo,
+  businessInfo = DEFAULT_BUSINESS_INFO,
 } = Astro.props;
 
 const canonicalURL = Astro.props.canonicalURL || new URL(Astro.url.pathname, Astro.site);
-const formattedTitle = title === SITE_DEFAULT_TITLE ? title : `${title} | ${SITE_DEFAULT_TITLE}`;
 
 let jsonLD = null;
 
@@ -66,34 +48,32 @@ if (businessInfo) {
     "logo": businessInfo.logo,
     "image": image, // Fallback to the page's open graph image for search engines
     "description": businessInfo.description,
-    "telephone": businessInfo.telephone,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": businessInfo.address.streetAddress,
-      "addressLocality": businessInfo.address.addressLocality,
-      "addressRegion": businessInfo.address.addressRegion,
-      "postalCode": businessInfo.address.postalCode,
-      "addressCountry": businessInfo.address.addressCountry,
-    }
   };
 }
 ---
 
 <link rel="canonical" href={canonicalURL} />
 
-<title>{formattedTitle}</title>
-<meta name="title" content={formattedTitle} />
+<title>{title}</title>
+<meta name="title" content={title} />
 <meta name="description" content={description} />
+
+<!-- Standard Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+
+<!-- Apple Touch Icon (Google often uses this for high-DPI displays) -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
 <meta property="og:type" content={type} />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={formattedTitle} />
+<meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={formattedTitle} />
+<meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 {jsonLD && (
