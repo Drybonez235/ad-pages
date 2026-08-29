@@ -4,14 +4,15 @@
 @theme {
   /* Effortlessly add or override custom theme values */
   
-  --color-brand-cyan: rgb(164, 216, 216);
-  --color-brand-blue: rgb(125, 138, 255);
-  --color-brand-lavender: rgb(190, 125, 255);
-  --color-brand-red: rgb(255, 125, 125);
-  --color-brand-orange: rgb(255, 164, 125);
-  --color-brand-green: rgb(177, 203, 180);
-  --color-brand-gray: rgb(87, 84, 84);
-  --color-brand-paper: rgb(223, 220, 223); /* #dfdcdf - Newspaper Light Gray */
+
+  --color-brand-cyan: oklch(84.62% 0.0536 196.18);
+--color-brand-blue: oklch(67.78% 0.1713 276.06);
+--color-brand-lavender: oklch(71.04% 0.1904 305.15);
+--color-brand-red: oklch(73.95% 0.1588 21.68);
+--color-brand-orange: oklch(80.11% 0.1206 43.83);
+--color-brand-green: oklch(81.63% 0.0425 148.46);
+--color-brand-gray: oklch(44.87% 0.0039 17.30);
+--color-brand-paper: oklch(89.77% 0.0052 325.62);
 
   /* --- BRAND FONTS --- */
   /* Require fonts to be imported in the head/HTML (see below) */

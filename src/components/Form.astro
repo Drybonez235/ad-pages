@@ -4,12 +4,12 @@
 <!-- Success Confirmation Message (Initially Hidden) -->
 <div 
   id="form-success-message" 
-  class="hidden flex flex-col gap-2 rounded-xs border border-brand-green bg-white p-6 text-center shadow-xs"
+  class="hidden  flex-col gap-2 rounded-xs border border-brand-green bg-white p-6 text-center shadow-xs"
 >
   <h2 class="font-brand-display text-2xl/tight font-bold text-black">
     Your form has been received!
   </h2>
-  <p class="font-brand-body text-sm/6 text-brand-gray">
+  <p class="font-brand-display text-sm/6 text-brand-gray">
     Thank you for sharing your vision. We will review your request and reach out shortly.
   </p>
 </div>
@@ -20,11 +20,11 @@
   action="https://docs.google.com/forms/u/0/d/1fZNizhHCqaPNAilBLpAKY96KDrrBHYCH0h-37129AgU/formResponse"
   method="POST"
   target="hidden_google_iframe"
-  class="group flex flex-col gap-6 rounded-xs border border-brand-gray bg-white px-3 py-2.5 shadow-xs"
+  class="group flex flex-col gap-6 rounded-xs  px-3 py-2.5 "
 >
   <!-- Name Field -->
   <div class="flex flex-col gap-2">
-    <label for="name" class="font-brand-body text-sm/6 font-semibold text-black">
+    <label for="name" class="font-brand-display text-sm/6 font-semibold text-black">
       Name <span class="text-brand-red">*</span>
     </label>
     <input
@@ -33,13 +33,13 @@
       name="entry.1330574423"
       required
       placeholder="Your name"
-      class="w-full rounded-xs border border-brand-gray/30 bg-white/80 px-3 py-2 font-brand-body text-sm/6 text-black placeholder:text-brand-gray/50 focus:border-brand-green focus:outline-hidden focus:ring-1 focus:ring-brand-green"
+      class="w-full rounded-xs border border-brand-gray/30 bg-white/80 px-3 py-2 font-brand-display text-sm/6 text-black placeholder:text-brand-gray/50 focus:border-brand-green focus:outline-hidden focus:ring-1 focus:ring-brand-green"
     />
   </div>
 
   <!-- Email Field -->
   <div class="flex flex-col gap-2">
-    <label for="email" class="font-brand-body text-sm/6 font-semibold text-black">
+    <label for="email" class="font-brand-display text-sm/6 font-semibold text-black">
       Email <span class="text-brand-red">*</span>
     </label>
     <input
@@ -48,13 +48,13 @@
       name="entry.49073643"
       required
       placeholder="your.email@example.com"
-      class="w-full rounded-xs border border-brand-gray/30 bg-white px-3 py-2 font-brand-body text-sm/6 text-black placeholder:text-brand-gray/50 focus:border-brand-orange focus:outline-hidden focus:ring-1 focus:ring-brand-orange"
+      class="w-full rounded-xs border border-brand-gray/30 bg-white px-3 py-2 font-brand-display text-sm/6 text-black placeholder:text-brand-gray/50 focus:border-brand-orange focus:outline-hidden focus:ring-1 focus:ring-brand-orange"
     />
   </div>
 
   <!-- Vision/Message Field -->
   <div class="flex flex-col gap-2">
-    <label for="vision" class="font-brand-body text-sm/6 font-semibold text-black">
+    <label for="vision" class="font-brand-display text-sm/6 font-semibold text-black">
       Tell us your vision for your next landing page. <span class="text-brand-red">*</span>
     </label>
     <textarea
@@ -63,7 +63,7 @@
       rows="4"
       required
       placeholder="Describe your goals, audience, and ideas..."
-      class="w-full rounded-xs border border-brand-gray/30 bg-white px-3 py-2 font-brand-body text-sm/6 text-black placeholder:text-brand-gray/50 focus:border-brand-blue focus:outline-hidden focus:ring-1 focus:ring-brand-blue"
+      class="w-full rounded-xs border border-brand-gray/30 bg-white px-3 py-2 font-brand-display text-sm/6 text-black placeholder:text-brand-gray/50 focus:border-brand-blue focus:outline-hidden focus:ring-1 focus:ring-brand-blue"
     ></textarea>
   </div>
 
@@ -75,10 +75,11 @@
   <!-- Submit Button -->
   <button
     type="submit"
-    class="mt-2 cursor-pointer rounded-xs bg-brand-blue px-6 py-3 font-brand-body text-sm/6 font-semibold text-white transition-colors hover:bg-brand-blue/90 focus:outline-hidden focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
+    class="w-2/5  px-6 py-2.5 text-center ml-auto text-sm/7 font-semibold border hover:bg-[var(--color-brand-red)]/30 transition-colors cursor-pointer text-black"
   >
-    Submit Vision
+    Submit
   </button>
+ 
 </form>
 
 <script>

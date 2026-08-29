@@ -19,51 +19,63 @@ const navLinks = [
 ];
 ---
 
-<header class="pt-8 max-w-5xl px-6">
-  <div class="flex items-start gap-6">
+<header class="pt-6 md:pt-8 max-w-5xl px-4 md:px-6 mx-auto">
+  <div class="flex flex-col md:flex-row items-stretch md:items-start gap-4 md:gap-6">
     
-    <!-- Logo Container -->
-    <a href="/" class="hidden md:block shrink-0 relative size-28 ">
+    <!-- Desktop Logo Container -->
+    <a href="/" class="hidden md:block shrink-0 relative size-28">
       <img 
-        src="/ad-pages-logo-color.png" 
+        src="/ad-pages-logo-color.svg" 
         alt="Ad-Pages Logo" 
         class="absolute inset-0 size-full object-contain" 
       />
     </a>
 
-    <!-- Right Side Stack: Search Box + Inline Nav -->
+    <!-- Main Content Container: Mobile Header Top Row + Search + Links -->
     <div class="flex flex-col gap-4 grow max-w-2xl">
       
-      <!-- Search Bar Container -->
+      <!-- Search Bar & Mobile Brand Bar -->
       <div>
-        <span class="block text-xs/4 text-[var(--color-brand-gray)] mb-1">Ad-Pages.com</span>
-        <div class="flex items-center gap-3 border border-black px-3 py-2 bg-white">
+        <div class="flex items-center justify-between mb-1">
+          <span class="block text-xs/4 text-[var(--color-brand-gray)]">Ad-Pages.com</span>
+          
+          <!-- Mobile-only Small Logo Link -->
+          <a href="/" class="md:hidden shrink-0">
+            <img 
+              src="/ad-pages-logo-color.svg" 
+              alt="Ad-Pages Logo" 
+              class="h-6 w-auto object-contain" 
+            />
+          </a>
+        </div>
+
+        <div class="flex items-center gap-2 md:gap-3 border border-black px-3 py-2 bg-white">
           <svg class="size-5 text-[var(--color-brand-orange)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
           <input 
             type="text" 
             value={searchText} 
-            class="w-full text-sm/5 bg-transparent border-none outline-hidden text-black font-sans"
+            class="w-full text-xs/5 md:text-sm/5 bg-transparent border-none outline-hidden text-black font-sans"
             readOnly
           />
         </div>
       </div>
 
-      <!-- Navigation Links -->
-      <nav class="flex items-center gap-8 text-sm/5 font-sans">
+      <!-- Navigation Links Container (Wraps cleanly on small screens) -->
+      <nav class="flex flex-wrap items-center gap-x-4 gap-y-2 md:gap-8 text-xs/5 md:text-sm/5 font-sans">
         {navLinks.map((link) => {
-          // Check if current URL matches the link target or anchor
+          // Check if current URL matches the link target
           const isActive = currentPath === link.href || (currentPath === '/' && link.id === 'fast');
 
           return (
             <a 
               href={link.href} 
               class:list={[
-                'hover:scale-102',
+                'hover:scale-102 transition-transform whitespace-nowrap',
                 isActive 
-                  ? 'font-medium bg-brand-orange/30 p-1 px-2 rounded-xs' 
-                  : 'no-underline font-normal'
+                  ? 'font-medium bg-[var(--color-brand-orange)]/30 p-1 px-2 rounded-xs text-black' 
+                  : 'no-underline font-normal text-black'
               ]}
             >
               {link.label}
@@ -75,4 +87,4 @@ const navLinks = [
     </div>
   </div>
 </header>
-<div class="border-b border-black mt-3 mb-12"></div>
+<div class="border-b border-black mt-3 mb-8 md:mb-12"></div>
