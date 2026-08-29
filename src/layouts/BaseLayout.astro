@@ -25,12 +25,16 @@ const { title, description, image, type, businessInfo } = Astro.props;
   </BASEHEAD>
   
   <body class="bg-gray-50 ">
-     <!-- Standalone background canvas -->
+    <!-- Google Tag Manager (noscript) -->
+     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KT5SFVJN"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+     
+
     <canvas 
       id="stainCanvas" 
       class="fixed inset-0 -z-10 pointer-events-none w-full h-full bg-transparent"
     ></canvas>
-    <slot /> <!-- This is where page content goes -->
+    <slot /> 
     
     <FOOTER></FOOTER>
   </body>
