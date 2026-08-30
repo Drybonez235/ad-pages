@@ -19,17 +19,10 @@ const navLinks = [
 ];
 ---
 
-<header class="pt-6 md:pt-8 max-w-5xl px-4 md:px-6 mx-auto">
-  <div class="flex flex-col md:flex-row items-stretch md:items-start gap-4 md:gap-6">
+<header class="pt-6 md:pt-8 max-w-4xl px-4 md:px-6 mx-auto">
+
+  <div class="flex flex-col md:flex-row items-stretch md:items-start gap-4 md:gap-6 pl-2">
     
-    <!-- Desktop Logo Container -->
-    <a href="/" class="hidden md:block shrink-0 relative size-28">
-      <img 
-        src="/ad-pages-logo-color.svg" 
-        alt="Ad-Pages Logo" 
-        class="absolute inset-0 size-full object-contain" 
-      />
-    </a>
 
     <!-- Main Content Container: Mobile Header Top Row + Search + Links -->
     <div class="flex flex-col gap-4 grow max-w-2xl">
@@ -37,7 +30,7 @@ const navLinks = [
       <!-- Search Bar & Mobile Brand Bar -->
       <div>
         <div class="flex items-center justify-between mb-1">
-          <span class="block text-xs/4 text-[var(--color-brand-gray)]">Ad-Pages.com</span>
+          <a href="/"><span class="block text-xs/4 text-[var(--color-brand-gray)]">Ad-Pages.com</span></a>
           
           <!-- Mobile-only Small Logo Link -->
           <a href="/" class="md:hidden shrink-0">
@@ -85,6 +78,15 @@ const navLinks = [
       </nav>
 
     </div>
+     <!-- Desktop Logo Container -->
+    <a href="/" class="hidden md:block shrink-0 size-20 rounded-full bg-brand-paper/80 ml-auto absolute top-2 right-5">
+      <img 
+        src="/ad-pages-logo-color.svg" 
+        alt="Ad-Pages Logo" 
+        class="absolute inset-0 size-full object-contain"
+        width="20" height="20" 
+      />
+    </a>
   </div>
 </header>
 <div class="border-b border-black mt-3 mb-8 md:mb-12"></div>

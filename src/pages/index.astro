@@ -1,123 +1,170 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import FooterAstroComponent from '../components/Footer.astro'
-import NavAstroComponent from '../components/Nav.astro'
-import ResultSectionAstroComponent from '../components/Result-Section.astro';
-import '../styles/global.css';  
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FooterAstroComponent from "../components/Footer.astro";
+import NavAstroComponent from "../components/Nav.astro";
+import ResultSectionAstroComponent from "../components/Result-Section.astro";
+import  Techstack  from "../components/techstack.astro";
+import "../styles/global.css";
 
-import { Image } from 'astro:assets';
-import ThemeAstroComponent from '../components/Theme.astro';
-import exampleimg from '../assets/images/favicon.svg'
-
+import { Image } from "astro:assets";
+import ThemeAstroComponent from "../components/Theme.astro";
+import exampleimg from "../assets/images/favicon.svg";
 ---
 
-<BaseLayout 
-  title="Ad-pages: Home" 
+<BaseLayout
+  title="Ad-pages: Home"
   description="At Ad-pages we build landing pages for Google and Meta ads. Building landing pages using a companys tech stack can be slow and daunting. With Ad-pages you can have a landing page built in no time."
   image="/ad-pages-logo-color.svg"
 >
   <!-- Main Content / Hero -->
-    <main class="grow flex flex-col items-center justify-between px-4 py-2 min-h-dvh font-brand-display">
-    
+  <main
+    class="grow flex flex-col items-center justify-between px-4 py-2 min-h-dvh font-brand-display"
+  >
     <!-- Top Bar Navigation & Icons Header -->
-    <header class="w-full  flex items-center justify-between">
+    <header class="w-full flex items-center justify-between">
       <!-- Left side: Main with bottom border/bar, and About -->
-      <nav class="flex items-center gap-6 text-lg/7 font-medium font-brand-display text-black">
+      <nav
+        class="flex items-center gap-6 text-lg/7 font-medium font-brand-display text-black"
+      >
         <a href="/" class="border-b-2 border-brand-gray pb-0.5">Main</a>
         <a href="/about/" class="hover:underline transition-all">About</a>
       </nav>
 
       <!-- Right side: Tech Stack Icon & Favicon Logo -->
       <div class="flex items-center gap-1">
-        <button 
-        type="button" 
-        aria-label="Apps menu"
-        class="p-2 rounded-full hover:bg-black/5 transition-colors cursor-pointer text-brand-gray focus:outline-hidden"
-      >
-        <svg class="size-12 fill-current" viewBox="0 0 24 24">
-          <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-        </svg>
-      </button>
-      
-      <a href="/" class="hidden md:block shrink-0 relative size-20 bg-brand-paper/40 rounded-full">
-      <img 
-        src="/ad-pages-logo-color.png" 
-        alt="Ad-Pages Logo" 
-        class="absolute inset-0 size-full object-contain" 
-      />
-    </a>
-    </div>
+        <button
+          type="button"
+          aria-label="Email"
+          class="p-2 rounded-full hover:bg-black/5 transition-colors cursor-pointer text-brand-gray focus:outline-hidden"
+        >
+        <a 
+        href="mailto:jonathan@ad-pages.com">
+          <svg
+            class="size-12 fill-brand-gray/60"
+            viewBox="0 0 24 24"
+            width="12"
+            height="12"
+          >
+            <path
+              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+            ></path>
+          </svg>
+          </a>
+        </button>
+
+     <Techstack></Techstack> 
+
+        <a
+          href="/"
+          class="hidden md:block shrink-0 relative size-20 bg-brand-paper/80 rounded-full"
+        >
+          <img
+            src="/ad-pages-logo-color.png"
+            alt="Ad-Pages Logo"
+            class="absolute inset-0 size-full object-contain"
+          />
+        </a>
+      </div>
     </header>
 
     <!-- Main Content / Hero -->
-    <div class="max-w-3xl w-full flex flex-col items-center text-center mb-auto">
-      
+    <div
+      class="max-w-3xl w-full flex flex-col items-center text-center mb-auto md:pt-20"
+    >
       <!-- Classic Logo & Title Display -->
       <div class="mb-8 flex flex-col items-center gap-3">
-        <h1 class="font-brand-display text-4xl/tight md:text-6xl/tight font-bold text-black tracking-tight">
+        <h1
+          class="font-brand-display text-4xl/tight md:text-6xl/tight font-bold text-black tracking-tight"
+        >
           Ad-pages<span class="text-brand-red">.com</span>
         </h1>
       </div>
 
       <!-- Retro Search Engine Box -->
       <div class="w-full text-left relative">
-        
         <!-- Active Input Bar -->
-        <div class="relative flex items-center border border-[var(--color-brand-gray)] bg-white px-3 py-2.5 shadow-inner group">
-          <svg class="size-6 text-[var(--color-brand-orange)] shrink-0 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        <div
+          class="relative flex items-center border border-[var(--color-brand-gray)] bg-white px-3 py-2.5 shadow-inner group"
+        >
+          <svg
+            class="size-6 text-[var(--color-brand-orange)] shrink-0 group-hover:translate-x-0.5 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
-          <span class="text-lg/7 md:text-xl/7 font-medium text-black px-2 group-hover:translate-x-0.5 transition-transform">
+          <span
+            class="text-lg/7 md:text-xl/7 font-medium text-black px-2 group-hover:translate-x-0.5 transition-transform"
+          >
             Build fast and performant landing pages.
           </span>
         </div>
 
         <!-- Suggested Searches / Auto-Complete Dropdown -->
-        <div class="mt-2 border border-[var(--color-brand-gray)]/30 bg-white/80 divide-y divide-[var(--color-brand-gray)]/10 text-sm/7">
-          <a 
-            href="/build-fast/" 
+        <div
+          class="mt-2 border border-[var(--color-brand-gray)]/30 bg-white/80 divide-y divide-[var(--color-brand-gray)]/10 text-sm/7"
+        >
+          <a
+            href="/build-fast/"
             class="flex items-center gap-3 p-3 hover:bg-[var(--color-brand-red)]/30 transition-colors group cursor-pointer text-black"
           >
-            <span class="text-brand-red group-hover:translate-x-0.5 transition-transform">➔</span>
+            <span
+              class="text-brand-red group-hover:translate-x-0.5 transition-transform"
+              >➔</span
+            >
             <span><strong>Build Fast</strong> landing pages for your ads.</span>
           </a>
 
-          <a 
-            href="/build-performant/" 
+          <a
+            href="/build-performant/"
             class="flex items-center gap-3 p-3 hover:bg-[var(--color-brand-lavender)]/30 transition-colors group cursor-pointer text-black"
           >
-            <span class="text-brand-lavender group-hover:translate-x-0.5 transition-transform">➔</span>
-            <span><strong>Build Performant</strong> landing pages that convert.</span>
+            <span
+              class="text-brand-lavender group-hover:translate-x-0.5 transition-transform"
+              >➔</span
+            >
+            <span
+              ><strong>Build Performant</strong> landing pages that convert.</span
+            >
           </a>
 
-          <a 
-            href="/build-trust/" 
+          <a
+            href="/build-trust/"
             class="flex items-center gap-3 p-3 hover:bg-[var(--color-brand-blue)]/30 transition-colors group cursor-pointer text-black"
           >
-            <span class="text-[var(--color-brand-blue)] group-hover:translate-x-0.5 transition-transform">➔</span>
-            <span><strong>Built Trust</strong> with a simple and secure platform.</span>
+            <span
+              class="text-[var(--color-brand-blue)] group-hover:translate-x-0.5 transition-transform"
+              >➔</span
+            >
+            <span
+              ><strong>Built Trust</strong> with a simple and secure platform.</span
+            >
           </a>
         </div>
 
         <!-- Call To Action Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6 pt-2">
-          <a 
-            href="/build-with-ad-pages/" 
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6 pt-2"
+        >
+          <a
+            href="/build-with-ad-pages/"
             class="w-full sm:w-auto px-6 py-2.5 text-center text-sm/7 font-semibold border hover:bg-[var(--color-brand-red)]/30 transition-colors cursor-pointer text-black"
           >
             Build with Ad-pages
           </a>
-          <a 
-            href="/build-fast/" 
+          <a
+            href="/build-fast/"
             class="w-full sm:w-auto px-6 py-2.5 text-center text-sm/7 font-semibold hover:bg-brand-lavender/30 transition-colors cursor-pointer text-black border"
           >
-            Learn More 
+            Learn More
           </a>
         </div>
-
       </div>
     </div>
-    
   </main>
 </BaseLayout>
-
