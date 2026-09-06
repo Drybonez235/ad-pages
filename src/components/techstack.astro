@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FooterAstroComponent from '../components/Footer.astro';
+import NavAstroComponent from '../components/Nav.astro';
+import '../styles/global.css';  
+
+const techStack = [
+  { name: "Astro", icon: "https://cdn.simpleicons.org/astro", url: "https://astro.build" },
+  { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss", url: "https://tailwindcss.com" },
+  { name: "Cloudflare", icon: "https://cdn.simpleicons.org/cloudflare", url: "https://www.cloudflare.com" },
+  { name: "Git", icon: "https://cdn.simpleicons.org/git", url: "https://git-scm.com" },
+  { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+  { name: "HTML5", icon: "https://cdn.simpleicons.org/html5", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+];
+---
+
+<div class="relative inline-block" id="tech-menu-container">
+  <!-- Trigger Button -->
+  <button
+type="button"
+    id="tech-menu-button"
+    aria-label="Apps menu"
+    aria-expanded="false"
+    aria-controls="tech-menu-dropdown"
+    class="p-2 rounded-full hover:bg-black/5 transition-colors cursor-pointer text-brand-gray focus:outline-hidden"
+  >
+    <svg
+      class="size-12 fill-current"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+      ></path>
+    </svg>
+  </button>
+
+  <!-- Popup Dropdown -->
+  <div
+    id="tech-menu-dropdown"
+    class="hidden absolute right-0 mt-2 w-70 shadow-xl p-4 z-50 transition-all duration-150 backdrop-blur-md"
+  >
+    <div class="text-xs/5 font-semibold text-brand-gray tracking-wider text-center mb-3 px-2 mx-auto">
+      Tech Stack
+    </div>
+    <div class="grid grid-cols-2 gap-2">
+      {
+        techStack.map((tech) => (
+          <a
+            href={tech.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="relative flex flex-col items-center justify-center p-3 rounded-xl hover:bg-white/80 transition-colors group"
+          >
+            <!-- North East Arrow Icon on Hover -->
+            <svg
+              class="absolute top-1.5 right-1.5 size-5 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+
+            <img
+              src={tech.icon}
+              alt={tech.name}
+              class="size-8 mb-2 group-hover:scale-110 transition-transform"
+              loading="lazy"
+            />
+            <span class="text-xs/5 text-gray-600 text-center font-medium truncate w-full">
+              {tech.name}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupTechMenu() {
+    const container = document.getElementById('tech-menu-container');
+    const button = document.getElementById('tech-menu-button');
+    const dropdown = document.getElementById('tech-menu-dropdown');
+
+    if (!container || !button || !dropdown) return;
+
+    const toggleMenu = (open?: boolean) => {
+      const isExpanded = open ?? dropdown.classList.contains('hidden');
+      dropdown.classList.toggle('hidden', !isExpanded);
+      button.setAttribute('aria-expanded', String(isExpanded));
+    };
+
+    // Toggle on button click
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (!container.contains(e.target as Node)) {
+        toggleMenu(false);
+      }
+    });
+
+    // Close on Escape press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        toggleMenu(false);
+      }
+    });
+  }
+
+  // Runs on initial load + Astro View Transitions navigation
+  setupTechMenu();
+  document.addEventListener('astro:page-load', setupTechMenu);
+</script>
